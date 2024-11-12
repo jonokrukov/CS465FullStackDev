@@ -1,0 +1,15 @@
+[
+    {
+        "name" : "Fried Salmon Special",
+        "image" : "seafoods.jpg",
+        "description" : "<p>A perfectly pan-seared salmon fillet, served with a crispy golden crust, topped with a zesty lemon-dill sauce and accompanied by a side of seasoned roasted vegetables.</p>"
+    } , {
+        "name" : "Sumptuous Desserts",
+        "image" : "desserts.jpg",
+        "description" : "<p>Assorted cakes, pastries, cookies, puddings, ice creams, and tarts.</p>"
+    } , {
+        "name" : "Mixed Buffet",
+        "image" : "buffet.jpg",
+        "description" : "<p>A mixed buffet featuring a variety of dishes including salads, grilled meats, seafood, pasta, vegetarian options, rice, roasted vegetables, bread, and an assortment of desserts.</p>"
+    }
+]
