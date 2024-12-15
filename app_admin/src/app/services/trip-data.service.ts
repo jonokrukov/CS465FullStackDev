@@ -9,17 +9,17 @@ import { BROWSER_STORAGE } from '../storage';
 
 
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class TripDataService {
 
   constructor(
     private http: HttpClient,
     @Inject(BROWSER_STORAGE) private storage: Storage
-  ) {}
+  ) { }
 
 
   private apiBaseUrl = 'http://localhost:3000/api/';
-  private tripUrl = '${this.apiBaseUrl}trips/';
+  private tripUrl = `${this.apiBaseUrl}trips/`;
 
   public addTrip(formData: Trip) : Observable<Trip> {
     // console.log('Inside TripDataService::addTrip');
@@ -56,10 +56,11 @@ export class TripDataService {
   }
 
   private makeAuthApiCall(urlPath: string, user: User): Promise<AuthResponse> {
-    const url: string = '${this.apiBaseUrl}/${urlPath}';
+    const url: string = `${this.apiBaseUrl}/${urlPath}`;
     return this.http
       .post(url, user)
       .toPromise()
-      .catch((error) => this.handleError(error));
+      .then(response => response as AuthResponse)
+      .catch(this.handleError);
   }
 }

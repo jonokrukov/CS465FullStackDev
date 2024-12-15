@@ -42,8 +42,8 @@ const register = async(req, res) => {
 };
 
 const login = (req, res) => {
-    // Validate message to ensure that email and password are both present
-    if (!req.body.email || !req.body.password) {
+    // Validate message to ensure that email, name, and password are all present
+    if (!req.body.email || !req.body.password || !req.body.name) {
         return res
             .status(400)
             .json({"message": "All fields required"});

@@ -16,7 +16,6 @@ import { User } from '../models/user';
 export class LoginComponent implements OnInit {
 
   public formError: string = '';
-  submitted = false;
 
   credentials = {
     name: '',
@@ -41,10 +40,6 @@ export class LoginComponent implements OnInit {
   }
 
   private doLogin(): void {
-    let newUser = {
-      name: this.credentials.name,
-      email: this.credentials.email
-    } as User;
-    this.authenticationService.login(newUser, this.credentials.password);
+    this.authenticationService.login(this.credentials).then(() => this.router.navigateByUrl('#')).catch((message) => this.formError = message);
   }
 } 
